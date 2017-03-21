@@ -2,8 +2,8 @@ public class NodeList
 {
   private Node head = null;
   private Node tail = null;
-  private int size = 0;
-  
+
+  //Method to add nodes alphabetically
   public void add(Node node)
   {
     //adds node to the head and tail if the list is empty
@@ -11,15 +11,15 @@ public class NodeList
      {
        head = node;
        tail = node;
-       size++;
+       
      }
-     //adds node to the beginning of the list if it comes in the alphabet before head
+     //adds node to the beginning of the list if it comes in the alphabet before the head
         else if(head.getName().compareToIgnoreCase(node.getName()) > 0)
         {
           head.setPrev(node);
           node.setNext(head);
           head = node;
-          size++;
+         
         }
         //search for where to enter the node in the list and enters the node in the list
      else{
@@ -30,45 +30,48 @@ public class NodeList
     {
         if(current.getNext().getName().compareToIgnoreCase(node.getName()) > 0)
         {
+          //adds the node and sets up prev and next
           Node temp = current.getNext();
           current.setNext(node);
           node.setPrev(current);
           node.setNext(temp);
-          temp.setPrev(node);
-          size++;
-                
-               if(node.getNext() == null)
-                {
-                  tail = node;
-                 }
-               return;
+          temp.setPrev(node);      
+          
+          //kicks you out of add method
+          return;
         }
           
           current = current.getNext();
       
     }
+    //adds node to tail correctly if the node is alphabetically last in the list   
     current.setNext(node);
+    node.setPrev(current);
     tail = node;
     
     
   }  
   
 }
-  /*method finds a string
-  public void findString(String name)
+  //method checks if a string is in the list
+  public void checkString(String name)
   {
     Node tempNode = head;
-         while(tempNode !=null){
+         while(tempNode !=null)
+        {
            if(name.equalsIgnoreCase(tempNode.getName()))
            {
              System.out.println(name + " is in the list");
              return;
-            }
-          tempNode= tempNode.getNext(); 
+           }
+           tempNode= tempNode.getNext(); 
         }
       System.out.println(name + " is not in the list");
-   } */
-   public boolean findString(String name)
+   } 
+   
+     
+     //method returns true if the string is in the list 
+     public boolean findString(String name)
   {
     Node current = head;
          while(current !=null){
@@ -107,18 +110,18 @@ public class NodeList
      }
      else
      {
-         System.out.print(name + " is not in the list");
+         System.out.print(name + " is not in the list, so it can not be deleted");
      }
 }
   
    //this method walks forward through the linked list
     public void iterateForward()
     {
-        Node temp = head;
-        while(temp != null)
+        Node current = head;
+        while(current != null)
         {
-            System.out.println(temp.getName());
-            temp = temp.getNext();
+            System.out.println(current.getName());
+            current = current.getNext();
         }
     }
     
@@ -126,12 +129,12 @@ public class NodeList
    //this method walks backward through the linked list     
     public void iterateBackward()
     {
-        Node temp = tail;
+        Node current = tail;
         
-        while(temp != null)
+        while(current != null)
         {
-            System.out.println(temp.getName());
-            temp = temp.getPrev();
+            System.out.println(current.getName());
+            current = current.getPrev();
         }
     }
     
