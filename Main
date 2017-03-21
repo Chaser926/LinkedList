@@ -1,0 +1,50 @@
+public class Main
+{
+ public static void main(String[] args)
+ {
+   NodeList list = new NodeList();
+  Node node = new Node(1, "Book");
+  Node node2 = new Node(2, "Dog");
+  
+  list.add(node);
+  list.add(node2);
+  
+  Node node3 = new Node(3, "Zebra");
+  Node node4 = new Node(4, "Ball");
+  Node node5 = new Node(5, "Yoyo");
+  Node node6 = new Node(6, "Mango");
+                list.add(node3);
+                list.add(node4);
+                list.add(node5);
+                list.add(node6);
+  Node node7 = new Node(3, "Apple");
+  Node node8 = new Node(4, "Test");
+  Node node9 = new Node(5, "Carrott");
+                list.add(node7);
+                list.add(node8);
+                list.add(node9);
+  
+                list.iterateForward();
+                System.out.println();
+                
+                list.deleteNode("Test");
+                System.out.println("Deleted Test node");
+                System.out.println();
+                
+                list.iterateForward();
+                //list.findString("Yoyo");
+                //list.findString("Eraser");
+                System.out.println();
+                
+                list.iterateBackward();
+                System.out.println();
+                
+                list.destroy();
+                System.out.println("\nList destroyed");
+                list.iterateForward();
+                list.iterateBackward();
+                
+  
+ }
+  
+}
