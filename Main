@@ -2,45 +2,64 @@ public class Main
 {
  public static void main(String[] args)
  {
-   NodeList list = new NodeList();
-  Node node = new Node(1, "Book");
-  Node node2 = new Node(2, "Dog");
+  NodeList list = new NodeList();
   
-  list.add(node);
-  list.add(node2);
+  //Create node
+  Node node = new Node("Book");
+  Node node2 = new Node("Dog");
+  Node node3 = new Node("Zebra");
+  Node node4 = new Node("Ball");
+  Node node5 = new Node("Yoyo");
+  Node node6 = new Node("Mango");
   
-  Node node3 = new Node(3, "Zebra");
-  Node node4 = new Node(4, "Ball");
-  Node node5 = new Node(5, "Yoyo");
-  Node node6 = new Node(6, "Mango");
+                 //adds the nodes to the list
+                list.add(node);
+                list.add(node2);
                 list.add(node3);
                 list.add(node4);
                 list.add(node5);
                 list.add(node6);
-  Node node7 = new Node(3, "Apple");
-  Node node8 = new Node(4, "Test");
-  Node node9 = new Node(5, "Carrott");
+                
+  Node node7 = new Node("Apple");
+  Node node8 = new Node("Test");
+  Node node9 = new Node("Carrot");
+  
                 list.add(node7);
                 list.add(node8);
                 list.add(node9);
-  
+                
+                //Print list forward
                 list.iterateForward();
                 System.out.println();
                 
+                //Delete 'test' node
                 list.deleteNode("Test");
-                System.out.println("Deleted Test node");
+                System.out.println("Deleted 'Test' node");
                 System.out.println();
                 
+                //Print list forward again without test node
                 list.iterateForward();
-                //list.findString("Yoyo");
-                //list.findString("Eraser");
                 System.out.println();
                 
-                list.iterateBackward();
+                //Check if yoyo and eraser are in the list
+                //Should print out that yoyo is in the the list
+                list.checkString("Yoyo");
+                //Should print out eraser is not in the list
+                list.checkString("Eraser");
                 System.out.println();
                 
+                //try deleting a node that's not in the list
+                list.deleteNode("Quiz");
+                System.out.println();
+                
+                //Print list backward
+                list.iterateBackward();            
+                
+                //Destroy the list                
                 list.destroy();
                 System.out.println("\nList destroyed");
+                
+                //Try printing after destroying the list to show the list was destroyed
                 list.iterateForward();
                 list.iterateBackward();
                 
